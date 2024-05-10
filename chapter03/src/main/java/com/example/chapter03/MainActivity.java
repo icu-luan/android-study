@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_dial).setOnClickListener(this);
         findViewById(R.id.btn_sms).setOnClickListener(this);
         findViewById(R.id.btn_my).setOnClickListener(this);
+        findViewById(R.id.btn_mid_control).setOnClickListener(this);
 
     }
 
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.setData(uri2);
                 startActivity(intent);
                 break;
+            case R.id.btn_mid_control:
+                intent.setClass(MainActivity.this,DrawableActivity.class);
+                startActivity(intent);
             default:
 
 

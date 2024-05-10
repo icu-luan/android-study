@@ -45,6 +45,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="跳转至其他应用"/>
+    <Button
+        android:id="@+id/btn_mid_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="中级控件"/>
 
 
 </LinearLayout>
