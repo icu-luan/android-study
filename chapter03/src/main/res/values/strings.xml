@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">chapter03</string>
+    <string name="first_short">first</string>
+    <string name="first_long">TextView页面</string>
+    <string name="second_short">second</string>
+    <string name="second_long">计算器</string>
+    <string name="third_short">third</string>
+    <string name="third_long">登录返回</string>
+</resources>
