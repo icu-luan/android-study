@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
@@ -18,6 +19,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.chapter03.utils.DateUtil;
@@ -25,7 +27,7 @@ import com.example.chapter03.utils.ViewUtil;
 
 import java.util.Calendar;
 
-public class DrawableActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener, View.OnClickListener, DatePickerDialog.OnDateSetListener {
+public class DrawableActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener, View.OnClickListener, DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private TextView sw_result;
     private TextView ck_sw_result;
@@ -34,6 +36,8 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
     private TextView tv_alert;
     private DatePicker dp_date;
     private TextView tv_date;
+    private TextView tv_time;
+    private TimePicker tp_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,12 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
         findViewById(R.id.btn_date).setOnClickListener(this);
         dp_date = findViewById(R.id.dp_date);
         tv_date = findViewById(R.id.tv_date);
+        //时间对话框
+        findViewById(R.id.btn_time_ok).setOnClickListener(this);
+        findViewById(R.id.btn_time).setOnClickListener(this);
+        tp_time = findViewById(R.id.tp_time);
+        tp_time.setIs24HourView(true);
+        tv_time = findViewById(R.id.tv_time);
 
 
     }
@@ -154,8 +164,21 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
 //                calendar.get(Calendar.YEAR);
 //                calendar.get(Calendar.MONTH);
 //                calendar.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog dialog = new DatePickerDialog(this, this, 2090, 5, 11);
+                DatePickerDialog dialog = new DatePickerDialog(this,this, 2090, 5, 11);
                 dialog.show();
+                break;
+            case R.id.btn_time_ok:
+                String desc1 =String.format("您选择的时间是%d时%d分",tp_time.getHour(),tp_time.getMinute());
+                tv_time.setText(desc1);
+                break;
+            case R.id.btn_time:
+                //获取日历的一个实例,里面包含了时分秒
+                Calendar calendar = Calendar.getInstance();
+                //构建一个时间对话框,该对话框已经集成了时间选择器
+                TimePickerDialog dialog1 = new TimePickerDialog(this,  android.R.style.Theme_Holo_Light_Dialog,this,
+                        calendar.get(Calendar.HOUR_OF_DAY),
+                        calendar.get(Calendar.MINUTE), true);//true表示24小时制,false表示12小时制
+                dialog1.show();
                 break;
 
 
@@ -168,6 +191,12 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         String desc =String.format("您选择的日期是%d年%d月%d日",year,month+1,dayOfMonth);
         tv_date.setText(desc);
+    }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String desc1 =String.format("您选择的时间是%d时%d分",hourOfDay,minute);
+        tv_time.setText(desc1);
     }
 
     private class HideTextWatcher implements TextWatcher {
