@@ -53,5 +53,56 @@
         android:button="@drawable/checkbox_selector"
         android:layout_marginTop="5dp"
         android:text="这是自定义的checkbox"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Switch开关:"
+            android:gravity="start"/>
+        <Switch
+            android:id="@+id/sw_status"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:layout_gravity="end" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/sw_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Switch开关:"
+            android:gravity="start"/>
+        <CheckBox
+            android:id="@+id/ck_switch"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:button="@null"
+            android:background="@drawable/switch_selector"
+            android:layout_gravity="end" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/ck_sw_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="start"/>
+
 
 </LinearLayout>
