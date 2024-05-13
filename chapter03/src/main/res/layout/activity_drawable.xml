@@ -245,5 +245,48 @@
             android:inputType="numberPassword"
             android:maxLength="6"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提醒对话框"
+            android:textColor="@color/purple_200" />
+        <TextView
+            android:id="@+id/tv_alert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="弹出提醒对话框" />
+
+        <Button
+            android:id="@+id/btn_alert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提醒对话框按钮" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="日期对话框"
+            android:textColor="@color/purple_200" />
+
+        <DatePicker
+            android:id="@+id/dp_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"/>
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="确 定"/>
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择日期"/>
     </LinearLayout>
 </ScrollView>
