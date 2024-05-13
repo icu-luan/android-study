@@ -7,15 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.chapter03.utils.DateUtil;
 
-public class DrawableActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class DrawableActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
 
     private TextView sw_result;
     private TextView ck_sw_result;
+    private TextView rb_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,11 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
         CheckBox ck_switch = findViewById(R.id.ck_switch);
         ck_switch.setOnCheckedChangeListener(this);
         ck_sw_result = findViewById(R.id.ck_sw_result);
+        //单选按钮
+        RadioGroup rb_gender = findViewById(R.id.rb_gender);
+        rb_gender.setOnCheckedChangeListener(this);
+        rb_result = findViewById(R.id.rb_result);
+
     }
 
     @Override
@@ -55,5 +62,17 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
         }
 
 
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId){
+            case R.id.rb_male:
+                rb_result.setText("您的性别是男");
+                break;
+            case R.id.rb_female:
+                rb_result.setText("您的性别是女");
+                break;
+        }
     }
 }
