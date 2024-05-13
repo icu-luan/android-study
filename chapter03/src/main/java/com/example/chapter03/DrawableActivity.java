@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+
+import com.example.chapter03.utils.DateUtil;
 
 public class DrawableActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
@@ -21,7 +24,7 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        String desc = String.format("您s%了这个checkbox",isChecked? "勾选":"取消勾选");
+        String desc = String.format("您%s了这个checkbox",isChecked? "勾选":"取消勾选");
         buttonView.setText(desc);
     }
 }
