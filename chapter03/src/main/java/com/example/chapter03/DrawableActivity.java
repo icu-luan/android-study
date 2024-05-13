@@ -3,7 +3,9 @@ package com.example.chapter03;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chapter03.utils.DateUtil;
+import com.example.chapter03.utils.ViewUtil;
 
 public class DrawableActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener, View.OnFocusChangeListener {
 
@@ -47,8 +50,12 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
         //焦点变更监听器
         et_phone = findViewById(R.id.et_phone);
         EditText et_password = findViewById(R.id.et_password);
-        Button btn_login = findViewById(R.id.btn_login);
         et_password.setOnFocusChangeListener(this);
+        //文本变化监听器
+        EditText et_phone1 = findViewById(R.id.et_phone1);
+        EditText et_password1 = findViewById(R.id.et_password1);
+        et_phone1.addTextChangedListener(new HideTextWatcher(et_phone1,11));
+        et_password1.addTextChangedListener(new HideTextWatcher(et_password1,6));
 
     }
 
@@ -93,6 +100,39 @@ public class DrawableActivity extends AppCompatActivity implements CompoundButto
                 et_phone.requestFocus();
                 Toast.makeText(this,"请输入11位手机号码",Toast.LENGTH_LONG).show();
             }
+        }
+    }
+
+    private class HideTextWatcher implements TextWatcher {
+        //声明一个编辑框对象
+        private EditText mView;
+        //声明一个最大长度变量
+        private int mMaxLength;
+        public HideTextWatcher(EditText v, int maxLength) {
+            this.mView = v;
+            this.mMaxLength = maxLength;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+        //在编辑框的输入文本变化后触发
+        @Override
+        public void afterTextChanged(Editable s) {
+            //获得已输入的文本字符串
+            String str = s.toString();
+            //输入文本达到11位,或者达到6位时关闭输入法
+            if (str.length() == mMaxLength){
+                //隐藏输入法软键盘
+                ViewUtil.hideOneInputMethod(DrawableActivity.this,mView);
+            }
+
         }
     }
 }
