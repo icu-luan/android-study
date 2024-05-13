@@ -1,139 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="5dp">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="点9图片"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="普通图片背景"
-        android:background="@drawable/img02"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="点9图片背景"
-        android:background="@drawable/img09"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="状态列表图形"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="默认样式的按钮" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="定制样式的按钮"
-        android:background="@drawable/btn_nine_selector"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="checkbox"/>
-    <CheckBox
-        android:id="@+id/ck_system"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="这是系统的checkbox"/>
-    <CheckBox
-        android:id="@+id/ck_custom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:button="@drawable/checkbox_selector"
-        android:layout_marginTop="5dp"
-        android:text="这是自定义的checkbox"/>
+    android:layout_margin="5dp"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Switch开关:"
-            android:gravity="start"/>
-        <Switch
-            android:id="@+id/sw_status"
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:padding="5dp"
-            android:layout_gravity="end" />
-    </LinearLayout>
-    <TextView
-        android:id="@+id/sw_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="start"/>
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:text="点9图片"
+            android:textColor="@color/purple_200" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img02"
+            android:text="普通图片背景" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/img09"
+            android:text="点9图片背景" />
+
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Switch开关:"
-            android:gravity="start"/>
+            android:text="状态列表图形"
+            android:textColor="@color/purple_200" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="默认样式的按钮" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_nine_selector"
+            android:text="定制样式的按钮" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="checkbox"
+            android:textColor="@color/purple_200" />
+
         <CheckBox
-            android:id="@+id/ck_switch"
-            android:layout_width="80dp"
-            android:layout_height="30dp"
-            android:button="@null"
-            android:background="@drawable/switch_selector"
-            android:layout_gravity="end" />
+            android:id="@+id/ck_system"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="这是系统的checkbox" />
+
+        <CheckBox
+            android:id="@+id/ck_custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:button="@drawable/checkbox_selector"
+            android:padding="5dp"
+            android:text="这是自定义的checkbox" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:padding="10dp"
+                android:text="Switch开关:" />
+
+            <Switch
+                android:id="@+id/sw_status"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:padding="5dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sw_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:padding="10dp"
+                android:text="Switch开关:" />
+
+            <CheckBox
+                android:id="@+id/ck_switch"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:background="@drawable/switch_selector"
+                android:button="@null" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ck_sw_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="start" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="单选按钮"
+            android:textColor="@color/purple_200" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择性别" />
+
+        <RadioGroup
+            android:id="@+id/rb_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="男" />
+
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="女" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/rb_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登录信息"
+            android:textColor="@color/purple_200" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="取消边框"
+            android:background="@null"
+            android:inputType="text" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="默认边框"
+            android:inputType="text" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="自定义圆角边框"
+            android:background="@drawable/edittext_selector"
+            android:inputType="text" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入密码"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="焦点变更监听器"
+            android:textColor="@color/purple_200" />
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入11位手机号"
+            android:background="@drawable/edittext_selector"
+            android:inputType="number"
+            android:maxLength="11"/>
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入6位密码"
+            android:background="@drawable/edittext_selector"
+            android:inputType="numberPassword"
+            android:maxLength="6"/>
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登录"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="文本变化监听器"
+            android:textColor="@color/purple_200" />
+        <EditText
+            android:id="@+id/et_phone1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入11位手机号"
+            android:background="@drawable/edittext_selector"
+            android:inputType="number"
+            android:maxLength="11"/>
+        <EditText
+            android:id="@+id/et_password1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入6位密码"
+            android:background="@drawable/edittext_selector"
+            android:inputType="numberPassword"
+            android:maxLength="6"/>
+
     </LinearLayout>
-    <TextView
-        android:id="@+id/ck_sw_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="start"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="单选按钮"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="选择性别"/>
-    <RadioGroup
-        android:id="@+id/rb_gender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/rb_male"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="男"/>
-        <RadioButton
-            android:id="@+id/rb_female"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="女"/>
-    </RadioGroup>
-    <TextView
-        android:id="@+id/rb_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-
-</LinearLayout>
+</ScrollView>
