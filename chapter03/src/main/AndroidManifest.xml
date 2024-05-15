@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".LoginForgetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".DrawableActivity"
             android:exported="false" />
         <activity

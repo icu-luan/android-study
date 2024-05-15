@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_sms).setOnClickListener(this);
         findViewById(R.id.btn_my).setOnClickListener(this);
         findViewById(R.id.btn_mid_control).setOnClickListener(this);
+        findViewById(R.id.btn_find_password).setOnClickListener(this);
 
     }
 
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_mid_control:
                 intent.setClass(MainActivity.this,DrawableActivity.class);
+                startActivity(intent);
+            case R.id.btn_find_password:
+                intent.setClass(MainActivity.this,LoginMainActivity.class);
                 startActivity(intent);
             default:
 
