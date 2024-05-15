@@ -17,6 +17,7 @@
             android:layout_height="@dimen/item_layout_height"
             android:layout_weight="1"
             android:textSize="@dimen/common_font_size"
+            android:checked="true"
             android:text="密码登录"/>
         <RadioButton
             android:id="@+id/rb_code"
