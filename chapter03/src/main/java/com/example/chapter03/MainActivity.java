@@ -24,12 +24,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "MainActivity onCreate");
         setContentView(R.layout.activity_main);
         findViewById(R.id.btn_font).setOnClickListener(this);
-        tv_hello = findViewById(R.id.tv_hello);
         findViewById(R.id.btn_dial).setOnClickListener(this);
         findViewById(R.id.btn_sms).setOnClickListener(this);
         findViewById(R.id.btn_my).setOnClickListener(this);
         findViewById(R.id.btn_mid_control).setOnClickListener(this);
         findViewById(R.id.btn_find_password).setOnClickListener(this);
+        findViewById(R.id.btn_data_storage).setOnClickListener(this);
 
     }
 
@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             case R.id.btn_find_password:
                 intent.setClass(MainActivity.this,LoginMainActivity.class);
+                startActivity(intent);
+            case R.id.btn_data_storage:
+                intent.setClass(MainActivity.this,DataStorageActivity.class);
                 startActivity(intent);
             default:
 

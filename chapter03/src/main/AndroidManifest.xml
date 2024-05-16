@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".DataStorageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShareWriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginForgetActivity"
             android:exported="false" />
         <activity
