@@ -8,11 +8,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -28,6 +31,7 @@ import java.util.Random;
 
 public class LoginMainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
 
+    private static final String TAG = "cai";
     private TextView tv_password;
     private EditText et_password;
     private Button btn_forget;
@@ -39,6 +43,7 @@ public class LoginMainActivity extends AppCompatActivity implements RadioGroup.O
     private Button btn_login;
     private String mPassword = "111111";
     private String mVerifyCode;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,22 @@ public class LoginMainActivity extends AppCompatActivity implements RadioGroup.O
 
             }
         });
+
+        //保存手机密码
+        preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
+        reload();
+    }
+
+    private void reload() {
+        boolean isRemember = preferences.getBoolean("isRemember", false);
+        if (isRemember){
+            String phone = preferences.getString("phone", null);
+            et_phone.setText(phone);
+            String password = preferences.getString("password", "");
+            et_password.setText(password);
+            ck_remember.setChecked(true);
+
+        }
     }
 
     @Override
@@ -155,6 +176,21 @@ public class LoginMainActivity extends AppCompatActivity implements RadioGroup.O
         builder.setNegativeButton("我再看看",null);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        if (ck_remember.isChecked()){
+            SharedPreferences.Editor edit = preferences.edit();
+            edit.putString("phone",et_phone.getText().toString());
+            edit.putString("password",et_password.getText().toString());
+            edit.putBoolean("isRemember",ck_remember.isChecked());
+            Log.d(TAG, et_phone.getText().toString());
+            edit.commit();
+        }else {
+            SharedPreferences.Editor edit = preferences.edit();
+            edit.putString("phone",null);
+            edit.putString("password",null);
+            edit.putBoolean("isRemember",false);
+            Log.d(TAG, et_phone.getText().toString());
+            edit.commit();
+        }
     }
 
     private class HideTextWatcher implements TextWatcher {

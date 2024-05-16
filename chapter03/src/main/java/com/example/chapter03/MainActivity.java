@@ -63,12 +63,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_mid_control:
                 intent.setClass(MainActivity.this,DrawableActivity.class);
                 startActivity(intent);
+                break;
             case R.id.btn_find_password:
                 intent.setClass(MainActivity.this,LoginMainActivity.class);
                 startActivity(intent);
+                break;
             case R.id.btn_data_storage:
                 intent.setClass(MainActivity.this,DataStorageActivity.class);
                 startActivity(intent);
+                break;
             default:
 
 
