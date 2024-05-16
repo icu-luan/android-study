@@ -7,16 +7,19 @@
     android:orientation="vertical"
     android:gravity="center">
     <Button
-        android:id="@+id/btn_share_write"
+        android:id="@+id/btn_create_database"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="共享参数"
-        android:textSize="@dimen/common_font_size"/>
+        android:text="创建数据库"/>
+    <TextView
+        android:id="@+id/tv_database"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
     <Button
-        android:id="@+id/btn_database"
+        android:id="@+id/btn_delete_database"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="数据库"
-        android:textSize="@dimen/common_font_size"/>
+        android:text="删除数据库"/>
 
 </LinearLayout>

@@ -13,6 +13,7 @@ public class DataStorageActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_storage);
         findViewById(R.id.btn_share_write).setOnClickListener(this);
+        findViewById(R.id.btn_database).setOnClickListener(this);
     }
 
     @Override
@@ -21,6 +22,10 @@ public class DataStorageActivity extends AppCompatActivity implements View.OnCli
         switch (v.getId()){
             case R.id.btn_share_write:
                 intent.setClass(this,ShareWriteActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_database:
+                intent.setClass(this,DataBaseActivity.class);
                 startActivity(intent);
                 break;
         }
