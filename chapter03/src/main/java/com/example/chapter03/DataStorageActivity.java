@@ -14,6 +14,7 @@ public class DataStorageActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_data_storage);
         findViewById(R.id.btn_share_write).setOnClickListener(this);
         findViewById(R.id.btn_database).setOnClickListener(this);
+        findViewById(R.id.btn_database_operate).setOnClickListener(this);
     }
 
     @Override
@@ -26,6 +27,10 @@ public class DataStorageActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.btn_database:
                 intent.setClass(this,DataBaseActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_database_operate:
+                intent.setClass(this,SQLiteHelperActivity.class);
                 startActivity(intent);
                 break;
         }
