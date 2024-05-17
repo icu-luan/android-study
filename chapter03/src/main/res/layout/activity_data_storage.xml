@@ -24,5 +24,11 @@
         android:layout_height="wrap_content"
         android:text="数据库操作"
         android:textSize="@dimen/common_font_size"/>
+    <Button
+        android:id="@+id/btn_outfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="外部存储空间"
+        android:textSize="@dimen/common_font_size"/>
 
 </LinearLayout>
