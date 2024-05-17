@@ -25,11 +25,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chapter03.database.LoginDBHelper;
+import com.example.chapter03.entity.LoginInfo;
 import com.example.chapter03.utils.ViewUtil;
 
 import java.util.Random;
 
-public class LoginMainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
+public class LoginMainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, View.OnFocusChangeListener {
 
     private static final String TAG = "cai";
     private TextView tv_password;
@@ -44,6 +46,7 @@ public class LoginMainActivity extends AppCompatActivity implements RadioGroup.O
     private String mPassword = "111111";
     private String mVerifyCode;
     private SharedPreferences preferences;
+    private LoginDBHelper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,21 +81,43 @@ public class LoginMainActivity extends AppCompatActivity implements RadioGroup.O
             }
         });
 
+        et_password.setOnFocusChangeListener(this);
+
         //保存手机密码
-        preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
-        reload();
+//        preferences = getSharedPreferences("config", Context.MODE_PRIVATE);
     }
 
     private void reload() {
-        boolean isRemember = preferences.getBoolean("isRemember", false);
-        if (isRemember){
-            String phone = preferences.getString("phone", null);
-            et_phone.setText(phone);
-            String password = preferences.getString("password", "");
-            et_password.setText(password);
+        //记住密码优化
+        LoginInfo info = mHelper.queryTop();
+        if (info != null && info.remember){
+            et_phone.setText(info.phone);
+            et_password.setText(info.password);
             ck_remember.setChecked(true);
-
         }
+//        boolean isRemember = preferences.getBoolean("isRemember", false);
+//        if (isRemember){
+//            String phone = preferences.getString("phone", null);
+//            et_phone.setText(phone);
+//            String password = preferences.getString("password", "");
+//            et_password.setText(password);
+//            ck_remember.setChecked(true);
+//        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mHelper = LoginDBHelper.getInstance(this);
+        mHelper.openReadLink();
+        mHelper.openWriteLink();
+        reload();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mHelper.closeLink();
     }
 
     @Override
@@ -176,20 +201,41 @@ public class LoginMainActivity extends AppCompatActivity implements RadioGroup.O
         builder.setNegativeButton("我再看看",null);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-        if (ck_remember.isChecked()){
-            SharedPreferences.Editor edit = preferences.edit();
-            edit.putString("phone",et_phone.getText().toString());
-            edit.putString("password",et_password.getText().toString());
-            edit.putBoolean("isRemember",ck_remember.isChecked());
-            Log.d(TAG, et_phone.getText().toString());
-            edit.commit();
-        }else {
-            SharedPreferences.Editor edit = preferences.edit();
-            edit.putString("phone",null);
-            edit.putString("password",null);
-            edit.putBoolean("isRemember",false);
-            Log.d(TAG, et_phone.getText().toString());
-            edit.commit();
+//        if (ck_remember.isChecked()){
+//            SharedPreferences.Editor edit = preferences.edit();
+//            edit.putString("phone",et_phone.getText().toString());
+//            edit.putString("password",et_password.getText().toString());
+//            edit.putBoolean("isRemember",ck_remember.isChecked());
+//            Log.d(TAG, et_phone.getText().toString());
+//            edit.commit();
+//        }else {
+//            SharedPreferences.Editor edit = preferences.edit();
+//            edit.putString("phone",null);
+//            edit.putString("password",null);
+//            edit.putBoolean("isRemember",false);
+//            Log.d(TAG, et_phone.getText().toString());
+//            edit.commit();
+//        }
+        //优化记住密码,通过SQLite数据库保存
+        LoginInfo info = new LoginInfo();
+        info.phone = et_phone.getText().toString();
+        info.password = et_password.getText().toString();
+        info.remember = ck_remember.isChecked();
+        mHelper.save(info);
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (v.getId() == R.id.et_password && hasFocus){
+            LoginInfo info = mHelper.queryByPhone(et_phone.getText().toString());
+            if (info != null){
+                et_password.setText(info.password);
+                ck_remember.setChecked(info.remember);
+            }else {
+                //没查到,清空密码
+                et_password.setText("");
+                ck_remember.setChecked(false);
+            }
         }
     }
 
