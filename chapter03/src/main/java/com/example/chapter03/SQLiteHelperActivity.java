@@ -7,11 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.chapter03.database.UserDBHelper;
 import com.example.chapter03.entity.User;
 import com.example.chapter03.utils.ToastUtil;
+
+import java.util.List;
 
 public class SQLiteHelperActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "cai";
@@ -64,7 +65,10 @@ public class SQLiteHelperActivity extends AppCompatActivity implements View.OnCl
         User user = null;
         switch (v.getId()){
             case R.id.btn_save:
-                user = new User(name,Integer.parseInt(age),Long.parseLong(height),Float.parseFloat(weight),ck_married.isChecked());
+                user = new User(name,Integer.parseInt(age),
+                        Long.parseLong(height),
+                        Float.parseFloat(weight),
+                        ck_married.isChecked());
                 Log.d(TAG, user.toString());
                 if (mHelper.insert(user) > 0){
                     ToastUtil.show(this,"添加成功");
@@ -72,15 +76,28 @@ public class SQLiteHelperActivity extends AppCompatActivity implements View.OnCl
                     ToastUtil.show(this,"添加失败");
                 }
                 break;
-//            case R.id.btn_delete:
-//
-//                break;
-//            case R.id.btn_update:
-//
-//                break;
-//            case R.id.btn_select:
-//
-//                break;
+            case R.id.btn_delete:
+                if (mHelper.deleteByName(name,age)>0){
+                    ToastUtil.show(this,"删除成功");
+                }
+
+                break;
+            case R.id.btn_update:
+                user = new User(name,Integer.parseInt(age),
+                        Long.parseLong(height),
+                        Float.parseFloat(weight),
+                        ck_married.isChecked());
+                if (mHelper.update(user)>0){
+                    ToastUtil.show(this,"修改成功");
+                }
+                break;
+            case R.id.btn_select:
+//                List<User> list = mHelper.queryAll();
+                List<User> list = mHelper.queryByName(name);
+                for (User u : list) {
+                    Log.d(TAG,u.toString());
+                }
+                break;
         }
     }
 }
