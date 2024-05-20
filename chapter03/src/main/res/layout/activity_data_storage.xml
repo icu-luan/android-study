@@ -36,5 +36,11 @@
         android:layout_height="wrap_content"
         android:text="存储卡上读写图片文件"
         android:textSize="@dimen/common_font_size"/>
+    <Button
+        android:id="@+id/btn_app_write"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="app全局变量"
+        android:textSize="@dimen/common_font_size"/>
 
 </LinearLayout>

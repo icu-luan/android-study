@@ -17,6 +17,7 @@ public class DataStorageActivity extends AppCompatActivity implements View.OnCli
         findViewById(R.id.btn_database_operate).setOnClickListener(this);
         findViewById(R.id.btn_outfile).setOnClickListener(this);
         findViewById(R.id.btn_image_write).setOnClickListener(this);
+        findViewById(R.id.btn_app_write).setOnClickListener(this);
     }
 
     @Override
@@ -41,6 +42,10 @@ public class DataStorageActivity extends AppCompatActivity implements View.OnCli
                 break;
             case R.id.btn_image_write:
                 intent.setClass(this,ImageWriteActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_app_write:
+                intent.setClass(this,AppWriteActivity.class);
                 startActivity(intent);
                 break;
         }

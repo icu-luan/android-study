@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".AppWriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImageWriteActivity"
             android:exported="false" />
         <activity
