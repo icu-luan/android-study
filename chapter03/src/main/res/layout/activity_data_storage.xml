@@ -42,5 +42,11 @@
         android:layout_height="wrap_content"
         android:text="app全局变量"
         android:textSize="@dimen/common_font_size"/>
+    <Button
+        android:id="@+id/btn_room_write"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jetpack_Room"
+        android:textSize="@dimen/common_font_size"/>
 
 </LinearLayout>

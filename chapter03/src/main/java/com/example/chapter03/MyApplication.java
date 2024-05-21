@@ -5,6 +5,9 @@ import android.content.res.Configuration;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.room.Room;
+
+import com.example.chapter03.database.BookDataBase;
 
 import java.util.HashMap;
 
@@ -17,6 +20,9 @@ public class MyApplication extends Application {
     //声明一个公共的信息映射对象,当作全局变量使用
     public HashMap<String,String> infoMap = new HashMap<>();
 
+    //声明一个书籍数据库对象
+    private BookDataBase bookDataBase;
+
     public static MyApplication getInstance(){
         return mApp;
     }
@@ -27,6 +33,13 @@ public class MyApplication extends Application {
         super.onCreate();
         mApp = this;
         Log.d(TAG, "MyApplication onCreate");
+
+        //构建书籍数据库的实例
+        bookDataBase = Room.databaseBuilder(this,BookDataBase.class,"book")
+                //允许迁移数据库(发生数据库变更时,Room默认删除原数据库再创建新数据库,如此一来原来的记录会丢失
+                .addMigrations()
+                //允许在主线程中操作数据库(ROOM默认不能在主线程中操作数据库
+                .allowMainThreadQueries().build();
     }
 
     //在app终止时调用
@@ -41,5 +54,9 @@ public class MyApplication extends Application {
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         Log.d(TAG, "onConfigurationChanged");
+    }
+
+    public BookDataBase getBookDataBase(){
+        return bookDataBase;
     }
 }
