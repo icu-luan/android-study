@@ -12,17 +12,38 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.chapter03.databinding.ActivityMainBinding;
 import com.example.chapter03.utils.DateUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "ning";
     private TextView tv_hello;
+    private ActivityMainBinding v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "MainActivity onCreate");
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
+
+        //1.
+//        v = DataBindingUtil.setContentView(this, R.layout.activity_main);
+//
+//        TextView a = v.btnFont;
+//        v.btnFont.setTextColor(0x1111111);
+//        v.btnFont.setOnClickListener(v -> {
+//
+//        });
+
+        //2.
+        ActivityMainBinding bing = ActivityMainBinding.inflate(getLayoutInflater(),null,false);
+        setContentView(bing.getRoot());
+
+
+
+
+
+
         findViewById(R.id.btn_font).setOnClickListener(this);
         findViewById(R.id.btn_dial).setOnClickListener(this);
         findViewById(R.id.btn_sms).setOnClickListener(this);

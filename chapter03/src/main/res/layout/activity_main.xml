@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    xmlns:andriod="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+        xmlns:andriod="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_font"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="字体跳转按钮"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:drawableTop="@drawable/img02"
-        android:text="图标在上"
-        android:textColor="#000000" />
-    <Button
-        android:id="@+id/btn_dial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="拨号12345"/>
-    <Button
-        android:id="@+id/btn_sms"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="发短信给12345"/>
-    <Button
-        android:id="@+id/btn_my"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="计算器"/>
-    <Button
-        android:id="@+id/btn_mid_control"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="中级控件"/>
-    <Button
-        android:id="@+id/btn_find_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="找回密码练习"/>
-    <Button
-        android:id="@+id/btn_data_storage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="数据存储"/>
+        <Button
+            android:id="@+id/btn_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="字体跳转按钮"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:drawableTop="@drawable/img02"
+            android:text="图标在上"
+            android:textColor="#000000" />
+        <Button
+            android:id="@+id/btn_dial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="拨号12345"/>
+        <Button
+            android:id="@+id/btn_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="发短信给12345"/>
+        <Button
+            android:id="@+id/btn_my"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="计算器"/>
+        <Button
+            android:id="@+id/btn_mid_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="中级控件"/>
+        <Button
+            android:id="@+id/btn_find_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="找回密码练习"/>
+        <Button
+            android:id="@+id/btn_data_storage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="数据存储"/>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>
