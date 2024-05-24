@@ -2,6 +2,7 @@ package com.example.chapter03;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.chapter03.databinding.ActivityMainBinding;
+import com.example.chapter03.recycler_view_demo.RecyclerActivity;
 import com.example.chapter03.utils.DateUtil;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -27,8 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        setContentView(R.layout.activity_main);
 
         //1.
-//        v = DataBindingUtil.setContentView(this, R.layout.activity_main);
-//
+        v = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
 //        TextView a = v.btnFont;
 //        v.btnFont.setTextColor(0x1111111);
 //        v.btnFont.setOnClickListener(v -> {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_mid_control).setOnClickListener(this);
         findViewById(R.id.btn_find_password).setOnClickListener(this);
         findViewById(R.id.btn_data_storage).setOnClickListener(this);
+        findViewById(R.id.btn_recycler_view).setOnClickListener(this);
 
     }
 
@@ -91,6 +94,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_data_storage:
                 intent.setClass(MainActivity.this,DataStorageActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_recycler_view:
+                intent.setClass(MainActivity.this, RecyclerActivity.class);
                 startActivity(intent);
                 break;
             default:

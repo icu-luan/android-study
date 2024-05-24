@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".Item1">
+
+    <item
+            android:id="@+id/add"
+            app:showAsAction="ifRoom"
+            android:icon="@drawable/add"
+            android:orderInCategory="100"
+            android:title="AddView"/>
+    <item
+            app:showAsAction="ifRoom"
+            android:id="@+id/delete"
+            android:icon="@drawable/delete"
+            android:orderInCategory="100"
+            android:title="DeleteView"/>
+    <item
+            android:id="@+id/listview"
+            android:orderInCategory="100"
+            android:title="ListView"/>
+    <item
+            android:id="@+id/grid_view"
+            android:orderInCategory="100"
+            android:title="GridView"/>
+    <item
+        android:id="@+id/grid_with_head"
+        android:orderInCategory="100"
+        android:title="GridWithHead"/>
+    <item
+            android:id="@+id/hor_grad_view"
+            android:orderInCategory="100"
+            android:title="Hor_GradView"/>
+    <item
+            android:id="@+id/staggered"
+            android:orderInCategory="100"
+            android:title="Staggered"/>
+    <item
+            android:id="@+id/reset"
+            android:orderInCategory="100"
+            android:title="Reset"/>
+</menu>
