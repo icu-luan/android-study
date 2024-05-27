@@ -1,21 +1,21 @@
 package com.example.chapter03;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.chapter03.databinding.ActivityMainBinding;
 import com.example.chapter03.recycler_view_demo.RecyclerActivity;
 import com.example.chapter03.utils.DateUtil;
+
+import org.jetbrains.annotations.Nullable;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "ning";
