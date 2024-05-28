@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.chapter03.databinding.ActivityMainBinding;
+import com.example.chapter03.http.HttpActivity;
 import com.example.chapter03.recycler_view_demo.RecyclerActivity;
 import com.example.chapter03.utils.DateUtil;
 
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_find_password).setOnClickListener(this);
         findViewById(R.id.btn_data_storage).setOnClickListener(this);
         findViewById(R.id.btn_recycler_view).setOnClickListener(this);
+        findViewById(R.id.btn_http_view).setOnClickListener(this);
 
     }
 
@@ -98,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_recycler_view:
                 intent.setClass(MainActivity.this, RecyclerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_http_view:
+                intent.setClass(MainActivity.this, HttpActivity.class);
                 startActivity(intent);
                 break;
             default:

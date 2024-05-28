@@ -71,6 +71,9 @@
         <activity
             android:name=".TextViewActivity"
             android:exported="true" />
+        <activity
+            android:name=".http.HttpActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
