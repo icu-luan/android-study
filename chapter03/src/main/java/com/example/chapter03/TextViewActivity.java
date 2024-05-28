@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chapter03.utils.DateUtil;
-import com.example.myapplication.utils.Utils;
+import com.example.chapter03.utils.Utils;
 
 public class TextViewActivity extends AppCompatActivity implements View.OnClickListener {
 
