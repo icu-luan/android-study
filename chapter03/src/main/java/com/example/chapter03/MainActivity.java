@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,13 +21,41 @@ import com.example.chapter03.utils.DateUtil;
 import org.jetbrains.annotations.Nullable;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String TAG = "ning";
+    private static final String TAG = "cai";
     private TextView tv_hello;
     private ActivityMainBinding v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //RxJavaTest
+//        try {
+//            String a = "1";
+//            try {
+//                Thread.sleep(1000L);
+//            } catch (Exception e) {
+//                throw new RuntimeException(e);
+//            }
+//            Log.d(TAG, Thread.currentThread().getName()+"主线程");
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    Log.d(TAG, Thread.currentThread().getName()+"进入自定义线程");
+//                    Looper mainLooper = Looper.getMainLooper();
+//                    Handler handler = new Handler(mainLooper);
+//                    handler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            Log.d(TAG, Thread.currentThread().getName()+"切换到主线程");
+//                            int i = Integer.valueOf(a);
+//                            Log.d(TAG, "i="+i);
+//                        }
+//                    });
+//                }
+//            },"自定义线程1").start();
+//        } catch (RuntimeException e) {
+//            e.printStackTrace();
+//        }
         Log.d(TAG, "MainActivity onCreate");
 //        setContentView(R.layout.activity_main);
 
